@@ -34,11 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <Button
+            android:id="@+id/you1"
             android:layout_weight="1"
             android:text="You"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <Button
+            android:id="@+id/you2"
             android:layout_weight="1"
             android:text="CPU"
             android:layout_width="wrap_content"

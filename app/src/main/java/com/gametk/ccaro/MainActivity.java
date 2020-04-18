@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ai = true;
                 intent.putExtra("ai",ai);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ai = false;
                 intent.putExtra("ai",ai);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

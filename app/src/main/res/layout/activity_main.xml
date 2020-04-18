@@ -19,6 +19,7 @@
             <Button
                 android:id="@+id/may"
                 android:text="ĐÁNH VỚI MÁY"
+                android:textColor="#D5C4C4"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_weight="1"
@@ -29,6 +30,7 @@
             <Button
                 android:id="@+id/nguoi"
                 android:text="HAI NGƯỜI CHƠI"
+                android:textColor="#D5C4C4"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:layout_weight="1"
