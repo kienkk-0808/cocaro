@@ -29,6 +29,7 @@
         android:layout_margin="5dp">
 
         <Button
+            android:id="@+id/resetView"
             android:layout_weight="1"
             android:text="V.Mới"
             android:layout_width="wrap_content"
@@ -46,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
         <Button
+            android:id="@+id/datLai"
             android:layout_weight="1"
             android:text="Đ.Lại"
             android:layout_width="wrap_content"
