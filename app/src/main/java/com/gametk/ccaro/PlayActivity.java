@@ -51,7 +51,12 @@ public class PlayActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                back();
+                if (hasAI){
+                    back();
+                    back();
+                }else {
+                    back();
+                }
                 if((step % 2) == 1){
                     you2.setBackgroundColor(getColor(R.color.colorGreen));
                     you1.setBackground(null);
@@ -116,9 +121,31 @@ public class PlayActivity extends AppCompatActivity {
                                 you1.setBackgroundColor(getColor(R.color.colorGreen));
                             }
 
-                            if (hasAI){
+                            if (hasAI){             //AI
+                                //người tick
                                 step++;
-                                // cho AI chơi
+                                BX[step - 1] = finalI;
+                                BY[step - 1] = finalJ;
+                                imageViews[finalI][finalJ].setBackgroundResource(R.drawable.x);
+                                table[finalI][finalJ] = 1;
+                                // cho AI tick
+                                ArtificialIntelligence.findNextMove(table,x,y);
+                                step++;
+                                BX[step - 1] = ArtificialIntelligence.getNextMoveX();
+                                BY[step - 1] = ArtificialIntelligence.getNextMoveY();
+                                imageViews[ArtificialIntelligence.getNextMoveX()][ArtificialIntelligence.getNextMoveY()].setBackgroundResource(R.drawable.o);
+                                table[ArtificialIntelligence.getNextMoveX()][ArtificialIntelligence.getNextMoveY()] = -1;
+                                // check Win
+                                if (ArtificialIntelligence.checkWin(table, x, y) == 1){
+                                    Toast.makeText(getApplicationContext(),"You win !!!",Toast.LENGTH_SHORT).show();
+                                    resetTable();
+                                }
+                                if (ArtificialIntelligence.checkWin(table, x, y) == -1){
+                                    Toast.makeText(getApplicationContext(),"Computer win !!!",Toast.LENGTH_SHORT).show();
+                                    resetTable();
+                                }
+
+
                             }else {
                                 step++;
                                 BX[step - 1] = finalI;
@@ -162,6 +189,7 @@ public class PlayActivity extends AppCompatActivity {
 
     private void resetTable(){
         Intent intent = new Intent(getApplicationContext(),PlayActivity.class);
+        intent.putExtra("ai",hasAI);
         startActivity(intent);
         finish();
     }
